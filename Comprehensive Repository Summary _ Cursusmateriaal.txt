@@ -1,0 +1,437 @@
+Comprehensive Repository Summary: Cursus Programmeren Basis
+Overall Directory Structure
+The repository is organized with a top-level directory containing:
+
+Main content folders: deel-00 through deel-18 (19 core modules)
+Special modules: deel-pa1 through deel-pa5 (Project Assignment 1-5), deel-gfx1, deel-gfx2 (Graphics), deel-ebd (Eastbound and Down game)
+Supporting folders for each: -oefeningen (exercises), -oplossingen (solutions), -verdieping (deepening/advanced topics)
+Documentation: README.md, index.adoc
+Git repository: .git folder
+All content is in AsciiDoc format (.adoc files) with image and attachment subdirectories.
+
+Complete Topic Mapping by Deel (Day/Part)
+DEEL 00: Fundamentals of Computer Information Representation
+Topics Covered:
+
+How computers represent information (bits and bytes)
+Binary number system and conversion
+Decimal to binary conversion (examples: 193 → 11000001)
+Representing complex information with numbers
+Text encoding (ASCII, UTF-8)
+Images and RGB color values
+Writing and executing computer programs
+CPU, memory, and instruction sets
+Source code and compilation
+Programming languages and C# introduction
+Key Concepts: Bits, bytes, binary/decimal conversion, encoding, RGB colors, compilers, .NET runtime
+
+DEEL 01: Hello World! - Getting Started with Visual Studio
+Topics Covered:
+
+Projects and solutions in Visual Studio
+Creating and opening projects from templates
+Console applications (command-line apps)
+The Problem.cs example solution
+Running/executing applications
+Compilersion and Integrated Development Environment (IDE)
+Basic language elements:
+Statements and terminators
+Literals
+Comments (single-line //, multi-line /* */)
+Variables and variable declaration
+Data types: string, int, double
+Static type checking
+Basic arithmetic operations
+Dot notation and namespaces
+Classes and methods
+Main method (entry point)
+Multiple methods in a class
+Public and private access modifiers
+Creating multiple broncodefiles in projects
+Multiple startup objects
+Key Concepts: Console apps, Visual Studio, variables, data types (string/int/double), methods, namespaces
+
+DEEL 02: Strings and Input/Output Control Structures
+Topics Covered:
+
+Visual Studio tips & tricks
+Code Lens customization
+Source code formatting and indentation
+Strings
+Special symbols in strings (escape sequences: \", \n, \\)
+String concatenation with +
+Console input/output
+Console.Write() and Console.WriteLine()
+Console.ReadLine() for user input
+Data type conversion
+String ↔ int conversion
+String ↔ double conversion
+int ↔ double conversion
+Parsing input with Parse()
+Boolean data type
+Control structures
+if statements
+if/else statements
+Comparing values (equality, relational operators)
+Key Concepts: Strings, escape sequences, string concatenation, console I/O, type conversion, if/else logic
+
+DEEL 03: String Interpolation, Number Operations, Variable Scope
+Topics Covered:
+
+String interpolation with $ prefix and {}
+Random number generation with Random class
+Random.Next() method with range
+Math functionality
+Common mathematical operations
+Verkorte notatie (shorthand) for simple calculations
+Variables and scope
+Variable naming conventions
+Scope rules (where variables are accessible)
+const keyword for constants
+Trace tables for program execution analysis
+Key Concepts: String interpolation, random numbers, Math class, variable scope, constants, tracing
+
+DEEL 04: Advanced Input Handling, Debugging, Conditional Logic
+Topics Covered:
+
+Converting input immediately during ReadLine
+Debugging in Visual Studio
+Types of programming errors
+Using the debugger
+Trace tables for debugging
+If...else if...else chains
+Nested if statements
+Comparison of sequential vs nested if statements
+Logical operations
+AND (&&)
+OR (||)
+NOT (!)
+Interval checking (range validation)
+Robust input handling
+String comparison
+Converting to lowercase/uppercase (.ToLower(), .ToUpper())
+Removing whitespace (.Trim())
+Key Concepts: Input validation, debugging, logical operators (AND/OR/NOT), string methods, nested conditionals
+
+DEEL 05: Loops - while, do-while, and Loop Control
+Topics Covered:
+
+Numeric input robust handling
+Parse() issues and runtime errors
+TryParse() solution for safe conversion
+Repetitions/loops
+Analogies and concepts
+do-while loop structure
+while loop structure
+Difference between while and do-while
+Infinite loops concept
+Different loop types overview
+Repeating user input
+Combining control structures
+Key Concepts: while loops, do-while loops, TryParse, input validation, loop control
+
+DEEL 06: For Loops and Loop Selection
+Topics Covered:
+
+Visual Studio tips & tricks
+Commenting/uncommenting code blocks
+Pausing program execution
+Clearing the console screen
+Repetitions/loops (continued)
+for loop structure
+Loop iteration patterns
+Aandachtspunten (important points about loops)
+Choosing between different loop types
+when to use for vs while vs do-while
+Key Concepts: for loops, loop selection strategies, console screen control
+
+DEEL 07: Projects Organization, String Operations, Character Type
+Topics Covered:
+
+Projects in Visual Studio
+Creating projects from scratch
+Multiple source files in one project
+Multiple startup objects
+Namespaces for code organization
+Multiple projects in one solution
+String operations and char datatype
+Converting numbers to formatted strings
+Accessing string parts (indexing)
+char datatype (single character)
+Iterating through all characters in a string
+Strings are immutable (immutable)
+Searching in strings (methods like .IndexOf())
+Extracting substrings (.Substring())
+Further string capabilities
+Key Concepts: Code organization, namespaces, char type, string methods, string immutability
+
+DEEL 08: Arrays - Declaration, Initialization, and Iteration
+Topics Covered:
+
+Introduction to arrays
+Array variables
+Declaration and initialization together
+Naming conventions for arrays
+Data types and default values
+Null for reference types
+Default values for value types
+Array initializers
+Empty arrays
+Pre-filled arrays with literals
+Accessing array elements
+Setting element values
+Accessing element values
+Similarity to string character access
+IndexOutOfRangeException errors
+Iterating through arrays
+Dynamic element access
+for loop iteration
+foreach loop iteration
+Building element values
+Dynamic array sizing
+Searching in arrays
+Key Concepts: Arrays, element access, IndexOutOfRange errors, for/foreach loops, array initialization
+
+DEEL 09: Advanced Array Operations, String/Array Conversion
+Topics Covered:
+
+Vroegtijdig loop beëindigen (early loop termination)
+Stopping without break
+Using break statement
+Arrays (advanced)
+Parallel arrays (multiple arrays with related data)
+Computing intersection of two arrays
+Strings (advanced)
+Strings are not char arrays
+Empty strings vs null strings
+Splitting strings into arrays: .Split()
+Joining arrays into strings: .Join()
+Further string capabilities
+Key Concepts: break statement, parallel arrays, string.Split(), string.Join(), null vs empty
+
+DEEL 10: Methods - Fundamentals, Parameters, Return Values, Debugging
+Topics Covered:
+
+Kleuren in de console (console colors)
+Console.ForegroundColor and Console.BackgroundColor
+Console.ResetColor()
+Methods fundamentals
+Avoiding repeated logic (DRY principle)
+Code structuring
+Method definition syntax
+Method calls
+Following method activation/execution flow
+Local variables in methods
+Parameters and parameter passing
+Return values
+Command vs Query methods (void vs returning value)
+Advanced debugger usage
+Following method execution
+Pausing code execution
+Key Concepts: Methods, parameters, return values, local variables, debugger, console colors
+
+DEEL 11: Advanced Methods, Software Design, Enumerations, Console Input
+Topics Covered:
+
+Software design principles
+Methods (advanced)
+Summary of method concepts
+Passing value types as parameters
+Passing reference types as parameters
+Returning values
+Enumerations (enum)
+Creating enums
+Using enum values
+Console capabilities
+Positioning the cursor (.SetCursorPosition())
+Reading single key input (.ReadKey())
+Key Concepts: Value vs reference types, enumerations, advanced parameter passing, cursor positioning
+
+DEEL 12: Documentation, Rounding, DateTime, TimeSpan, Collections
+Topics Covered:
+
+Standard documentation (code comments)
+Rounding numbers
+Numerics and implicit rounding errors
+Explicit rounding to integer
+Rounding to specific decimal places (n digits)
+DateTime and TimeSpan
+Representing moments with DateTime
+Representing time duration with TimeSpan
+DateTime formatting
+TimeSpan operations
+Dot notation, using statements, and namespaces (review)
+Arrays and methods (working together)
+Console input and methods
+Key Concepts: Documentation, rounding (Math.Round, Math.Ceiling, etc.), DateTime, TimeSpan, formatting
+
+DEEL 13: File I/O and Exception Handling
+Topics Covered:
+
+Reading and writing text to files
+Storing information outside working memory
+Completely overwriting or reading file content
+Relative vs absolute file paths
+Appending to files
+Reading/overwriting lines
+Moving, copying, deleting files
+Exception handling
+Program interruption and crashes
+Preventing exceptions
+Try-catch blocks and jumping to catch
+Multiple catch blocks for different exceptions
+Exception documentation
+File I/O with stream objects
+StreamReader and Using statement
+StreamWriter
+When to use StreamReader/StreamWriter
+Key Concepts: File I/O, exception handling, try-catch, streams, StreamReader, StreamWriter
+
+DEEL 14: Object-Oriented Programming - Classes and Objects
+Topics Covered:
+
+Objects and classes
+Class structure
+Data fields (member variables)
+Methods (member functions)
+"Get" and "Set" naming conventions
+Class naming conventions (PascalCase)
+Behavior vs state
+Terminology (fields, properties, methods)
+Private and public access modifiers
+Creating new classes in Visual Studio
+Creating objects with new
+Reference types and null
+Source code vs runtime object construction
+Instance methods
+Calling instance methods with dot notation
+Object diagrams
+Instance methods vs class (static) methods
+The this keyword
+NullReferenceException
+Objects as full-fledged data types
+Object diagrams
+Key Concepts: Classes, objects, encapsulation, public/private, instance methods, NullReferenceException
+
+DEEL 15: Constructors, Properties, Visibility, and Composition
+Topics Covered:
+
+Constructors
+Initializing objects properly
+Constructor definition
+Default constructor
+Mandatory initialization
+Multiple constructors
+Constructors calling other constructors (chaining)
+Immutable objects
+Visibility and access control
+Choosing visibility levels
+Information hiding/encapsulation
+Properties
+Property syntax
+Object initializers
+Simplification vs methods
+Choosing between methods and properties
+Properties in built-in types
+Read-only properties
+Modern naming (moving away from Get/Set prefixes)
+References and composed objects
+Reference types
+Composite/compound objects
+Expressions and static typing
+Statically typed language
+Expressions
+Type inference by compiler
+Type determines capabilities
+Key Concepts: Constructors, properties, encapsulation, immutability, object composition
+
+DEEL 16: Collection Classes
+Topics Covered:
+
+Generic collection classes
+List<T> (dynamic arrays)
+Dictionary<K,V> (key-value pairs)
+Set<T> and other collections
+LINQ (Language Integrated Query) basics
+Choosing appropriate collections
+Key Concepts: List<T>, Dictionary, generic collections, LINQ basics
+
+DEEL 17: Collection Classes (Advanced)
+Topics Covered:
+
+Advanced collection operations
+Filtering collections
+Sorting and ordering
+Grouping
+Aggregation (sum, count, average)
+LINQ query syntax
+Iterating collections efficiently
+Key Concepts: Advanced LINQ, collection algorithms, querying
+
+DEEL 18: Interfaces
+Topics Covered:
+
+Interface definition and purpose
+Defining contracts
+Implementing interfaces
+Multiple interface implementation
+Polymorphism through interfaces
+Built-in interfaces (IComparable, IEnumerable, etc.)
+Interface vs inheritance
+Key Concepts: Interfaces, contracts, polymorphism, IEnumerable, IComparable
+
+Special Project Modules
+DEEL PA1-PA5: Project Assignments (Personen Applicatie - People Application)
+Progressive building of a person management application:
+
+PA1: Basic menu-driven people management
+
+Menu system
+Adding/viewing/editing person details
+Data structure basics
+PA2: Refactoring with methods
+
+Helper methods for user input
+Display methods
+Input validation methods
+PA3: File I/O integration
+
+Saving data to files
+Loading data from files
+Persistence
+PA4: Object-oriented design
+
+Persoon class
+Encapsulation
+Class design patterns
+PA5: Collections
+
+Lists of people
+Multiple person management
+Collection iteration and manipulation
+Key Concepts: Application development, iterative refinement, methods, file I/O, OOP, collections
+
+DEEL GFX1 & GFX2: Graphics Programming
+GFX1: Graphics basics
+
+Drawing shapes
+Color manipulation
+Simple animations
+GFX2: Advanced graphics
+
+Transformations (rotation, scaling, translation)
+Sprite handling
+Game-like graphics
+Key Concepts: Graphics libraries, canvas operations, coordinate systems, transformations
+
+DEEL EBD: Eastbound and Down - Game Development
+A complete game project featuring:
+
+Game state management
+Game loop architecture
+Keyboard input handling
+Drawing and rendering
+Collision detection basics
+Frame timing and performance
+Interactive gameplay
+Key Concepts: Game loops, state machines, input handling, graphics rendering, timing
