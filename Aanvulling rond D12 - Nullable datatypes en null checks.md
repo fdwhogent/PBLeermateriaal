@@ -122,7 +122,8 @@ Uiteraard is dit gewoon een compactere manier dan werken met een **conditional o
 
 ```csharp
 int? aantalPogingen = null;
-Console.WriteLine($"Aantal pogingen: {aantalPogingen.HasValue ? aantalPogingen.Value : 0}");
+string pogingen = (aantalPogingen.HasValue ? aantalPogingen.Value : 0).ToString();
+Console.WriteLine($"Aantal pogingen: {pogingen}");
 ```
 
 Of met een klassieke `if`:
