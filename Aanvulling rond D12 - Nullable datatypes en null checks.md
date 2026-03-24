@@ -181,28 +181,19 @@ Console.WriteLine(naam); // onbekend 1
 
 ## Nullable reference types
 
-Sinds C# 8 bestaat er ook een systeem van **nullable reference types**. 
+Sinds C# 8 bestaat er ook een systeem van **nullable reference types**.  In recente projecten staat dit standaard aan (via `<Nullable>enable</Nullable>` in het `.csproj`-bestand).
 
-Dit werkt anders dan bij value types. Het is een mechanisme waarmee je de compiler op een ander manier waarschuwingen laat geven, of net niet, en dat de compiler helpt om mogelijke `null`-fouten op te sporen.
+Dit werkt anders dan bij value types. Het is een mechanisme waarmee je de compiler van meer informatie voorzien om `null`-gerelateerde waarschuwingen te geven.
+Je vormt een nullable reference type (net zoals een nullable value type) door na de naam van het reference type type (bijvoorbeeld `string`) een `?` te vermelden (bijvoorbeeld `string?`).
 
-In recente projecten staat dit standaard aan (via `<Nullable>enable</Nullable>` in het `.csproj`-bestand). Dat betekent:
+- `string` signaleer dat er normaal gezien niet met `null` wordt gewerkt.
+- `string?` geeft aan dat net wel _mogelijks_ met `null` wordt gewerkt zijn.
 
-- `string` mag normaal **niet** `null` zijn.
-- `string?` geeft aan dat de waarde `null` **mag** zijn.
+Je zal een waarschuwing krijgen bij het toekennen van `null` waardes op plaatsen waar je/men had aangegeven een `string` te verwachten. Deze `string` signaleert immers dat je verderop niet persé robuustheid hebt op dat vlak (rekening houdt met de _mogelijkheid_ dat het gaat over `null` gaat).
+Net géén waarschuwing indien je met `null` werkt op plaatsen waar je/men had aangegeven een `string?` te verwachten.  Deze `string?` signaleert immers dat de _mogelijkheid_ er is dat met `null` wordt gewerkt.
 
-```csharp
-string naam = "Jan";
-Console.WriteLine(naam);                    // Jan
-naam = null;                                // Compilerwaarschuwing: waarschuwing voor (1)
-//Console.WriteLine(naam.ToUpper());        // (1) runtimefout: NullReferenceException
-Console.WriteLine(naam ?? "geen naam");     // geen naam
-
-string? familienaam = "Janssens";           // string? => expliciet nullable gemaakt
-Console.WriteLine(familienaam);             // Janssens
-familienaam = null;                         // Geen compilerwaarschuwing, uiteraard kan runtimefout ontstaan (2)
-Console.WriteLine(familienaam ?? "geen familienaam"); // geen familienaam
-//Console.WriteLine(familienaam.ToUpper()); // (2) runtimefout: NullReferenceException
-```
+Je zal een waarschuwing krijgen bij het uitvoeren van een handeling met een `string?` expressie indien deze handeling kan leiden tot een `NullReferenceException`, het datatype `string?` signaleert immers dat deze expressie _mogelijks_ naar `null` evalueert.
+Net géén waarschuwing indien dezelfde handeling zou uitvoeren op een `string` expressie, want daarmee had je gesignaleerd aan te geven dat deze expressie _normaal gezien_ niet naar `null` zou evalueren.
 
 Dit zijn waarschuwingen, geen fouten. Je programma compileert nog steeds, maar de waarschuwingen helpen je om `NullReferenceException`s te voorkomen.
 
