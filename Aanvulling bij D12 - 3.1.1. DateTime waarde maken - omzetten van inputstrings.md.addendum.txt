@@ -1,8 +1,0 @@
-Weg en weer van DateOnly naar en van DateTime (misschien zinvol omdat je via DateTime instanties aan TimeSpan's wil geraken):
-
-            DateOnly someDateOnly = new DateOnly(2026, 3, 12);
-            DateTime someDateTime = someDateOnly.ToDateTime(TimeOnly.MinValue);
-            DateOnly otherDateOnly = DateOnly.FromDateTime(someDateTime);
-            Console.WriteLine(someDateOnly);
-            Console.WriteLine(someDateTime);
-            Console.WriteLine(otherDateOnly);

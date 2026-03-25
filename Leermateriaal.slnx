@@ -1,14 +1,3 @@
 <Solution>
-  <Folder Name="/Aanvullend/">
-    <File Path="Aanvulling bij D06 Iteratie statements - voordelen en verschillen.md" />
-    <File Path="Aanvulling bij D12 - 3.1.1. DateTime waarde maken - omzetten van inputstrings.md" />
-    <File Path="Aanvulling bij D12 2.2 expliciet afronden van komagetallen - belgische wetgeving.md" />
-    <File Path="Aanvulling bij D18 - Subtype polymorfisme.md" />
-    <File Path="Aanvulling C# taalfeatures.md" />
-    <File Path="Aanvulling rond D12 - Nullable datatypes en null checks.md" />
-    <File Path="Alternatief voor D12 - 2.1. Numerieke datatypes en (impliciete) afrondingsfouten.md" />
-    <File Path="Comprehensive Repository Summary _ Cursusmateriaal.txt" />
-    <File Path="Git(Hub) in Visual Studio.md" />
-  </Folder>
   <Project Path="ConsoleApp1/ConsoleApp1.csproj" />
 </Solution>
