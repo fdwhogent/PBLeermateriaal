@@ -12,6 +12,12 @@
 
             // Terug naar DateTime met FromDateTime...
             DateOnly otherDateOnly = DateOnly.FromDateTime(dt1);
+
+            Factuur f1 = new Factuur() { Nummer = 123 };
+            Factuur f2 = f1 with { Nummer = 234 };
         }
+    }
+    class Factuur {
+        public int Nummer { get; set; }
     }
 }

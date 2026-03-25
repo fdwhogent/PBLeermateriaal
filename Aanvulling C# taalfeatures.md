@@ -1,4 +1,4 @@
-# Programmeren - C# Taalfeatures
+# C# Taalfeatures
 
 ## Inleiding
 
@@ -6,48 +6,24 @@ C# is een taal die continu evolueert. Elke nieuwe versie brengt features die het
 
 Voor elke feature vind je een korte uitleg, voorbeeldcode en een verwijzing naar de officiële Microsoft-documentatie.
 
-## Nullable Types (C# 2.0)
+## Overzicht per C#-versie
 
-**Beschikbaar sinds:** C# 2.0 / .NET Framework 2.0 (2005)
+Volgende onderwerpen komen aan bod...
 
-Value types zoals `int`, `double` en `bool` kunnen normaal geen `null`-waarde bevatten. Met **nullable types** kan dit wel.
-
-Je maakt een value type nullable door een vraagteken (`?`) achter het type te plaatsen.
-
-**Voorbeeld van nullable types**
-
-```csharp
-int? leeftijd = null;
-
-if (leeftijd == null)
-{
-    Console.WriteLine("Leeftijd is onbekend.");
-}
-
-leeftijd = 25;
-Console.WriteLine($"Leeftijd: {leeftijd}");
-
-int zekereLeeftijd = leeftijd ?? 0;
-Console.WriteLine($"Zekere leeftijd: {zekereLeeftijd}");
-```
-**1.** Een `int?` kan zowel een getal als `null` bevatten.
-**2.** Wanneer een waarde is toegekend, gedraagt het zich als een gewone `int`.
-**3.** De null-coalescing operator (`??`) geeft een standaardwaarde indien `null`.
-
-Nullable types zijn handig wanneer je wil aangeven dat een waarde "niet ingesteld" of "onbekend" is, bijvoorbeeld bij het inlezen van optionele gegevens uit een database.
-
-> ℹ️ **Opmerking**
->
-> Je kan de `.HasValue` property gebruiken om te controleren of een nullable type een waarde bevat, en `.Value` om de effectieve waarde op te halen.
->
-> ```csharp
-> if (leeftijd.HasValue)
-> {
->     Console.WriteLine(leeftijd.Value);
-> }
-> ```
-
-> 💡 Meer info: [Nullable value types - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types)
+| C# versie | .NET versie | Belangrijke features |
+| --- | --- | --- |
+| C# 2.0 | .NET Framework 2.0 | Partial classes, Static classes |
+| C# 3.0 | .NET Framework 3.5 | LINQ, Lambda expressions, Anonymous types, var, Extension methods |
+| C# 4.0 | .NET Framework 4.0 | Dynamic binding, Named/optional arguments |
+| C# 6.0 | .NET Framework 4.6 | String interpolation, Expression-bodied members |
+| C# 7.0-7.3 | .NET Framework 4.7 / .NET Core 2.x | Tuples, Pattern matching, Local functions, Ref returns, Default literal |
+| C# 8.0 | .NET Core 3.x | Using declaration, Indices/ranges, Default interface methods |
+| C# 9.0 | .NET 5 | Records, Top-level statements, Target-typed new, Pattern combinators (and, or, not) |
+| C# 10 | .NET 6 | Global usings, File-scoped namespaces, Record structs, Const interpolated strings |
+| C# 11 | .NET 7 | Raw string literals, Required members, Generic math, List patterns, UTF-8 literals |
+| C# 12 | .NET 8 | Primary constructors, Collection expressions, Inline arrays, Alias any type |
+| C# 13 | .NET 9 | Params collections,`\e` escape, Partial properties |
+| C# 14 | .NET 10 | Field keyword, Extension members, Partial constructors/events |
 
 ## Partial Classes (C# 2.0)
 
@@ -391,52 +367,6 @@ Console.WriteLine(waarde.Count);  // Output: 3
 > ```
 
 > 💡 Meer info: [Using type dynamic - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/advanced-topics/interop/using-type-dynamic)
-
-## Null-Conditional Operators (C# 6.0)
-
-**Beschikbaar sinds:** C# 6.0 / .NET Framework 4.6 (2015)
-
-De null-conditional operators `?.` en `?[]` laten toe om veilig leden aan te roepen of te indexeren, zelfs als het object `null` kan zijn.
-
-**Voorbeeld zonder null-conditional**
-
-```csharp
-string naam = null;
-int? lengte = null;
-
-if (naam != null)
-{
-    lengte = naam.Length;
-}
-```
-
-**Hetzelfde met null-conditional**
-
-```csharp
-string naam = null;
-int? lengte = naam?.Length;
-
-Console.WriteLine(lengte);  // Output: (leeg, want null)
-```
-**1.** Als `naam` null is, wordt `.Length` niet aangeroepen en is het resultaat `null`.
-
-**Chaining en indexers**
-
-```csharp
-Klant klant = null;
-
-// Chaining van null-conditional
-string stad = klant?.Adres?.Stad;
-
-// Met array indexer
-int[] getallen = null;
-int? eerste = getallen?[0];
-
-// Combinatie met null-coalescing
-string resultaat = klant?.Naam ?? "Onbekend";
-```
-
-> 💡 Meer info: [Null-conditional operators - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-)
 
 ## Tuples en Deconstruction (C# 7.0)
 
@@ -1529,50 +1459,6 @@ Console.WriteLine(int.MaxWaarde);  // Via extension
 
 > 💡 Meer info: [Extension members - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14#extension-members)
 
-## Null-Conditional Assignment (C# 14)
-
-**Beschikbaar sinds:** C# 14 / .NET 10 (2025)
-
-De null-conditional operators `?.` en `?[]` kunnen nu ook aan de linkerkant van een toekenning staan.
-
-**Vergelijking**
-
-```csharp
-// Vóór C# 14
-if (klant is not null)
-{
-    klant.Naam = "Jan";
-}
-
-// Met C# 14
-klant?.Naam = "Jan";
-```
-**1.** Als `klant` null is, wordt de toekenning overgeslagen.
-
-**Meer voorbeelden**
-
-```csharp
-// Met indexer
-string[]? namen = null;
-namen?[0] = "Jan";  // Geen crash, gewoon overgeslagen
-
-// Chaining
-persoon?.Adres?.Stad = "Gent";
-
-// Met compound assignment
-teller?.Waarde += 10;
-
-// Rechterkant wordt niet geëvalueerd als linkerkant null is
-klant?.Order = HaalBestelling();
-```
-**1.** `HaalBestelling()` wordt niet aangeroepen als `klant` null is.
-
-> ⚠️ **Waarschuwing**
->
-> De operatoren `++` en `--` zijn niet toegestaan met null-conditional assignment.
-
-> 💡 Meer info: [Null-conditional assignment - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14#null-conditional-assignment)
-
 ## Partial Constructors (C# 14)
 
 **Beschikbaar sinds:** C# 14 / .NET 10 (2025)
@@ -1645,24 +1531,6 @@ public partial class Downloader
 **1.** Field-like event declaratie.
 
 > 💡 Meer info: [Partial events - Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14#partial-events-and-constructors)
-
-## Overzicht per C#-versie
-
-| C# versie | .NET versie | Belangrijke features |
-| --- | --- | --- |
-| C# 2.0 | .NET Framework 2.0 | Generics, Nullable types, Partial classes, Static classes |
-| C# 3.0 | .NET Framework 3.5 | LINQ, Lambda expressions, Anonymous types, var, Extension methods |
-| C# 4.0 | .NET Framework 4.0 | Dynamic binding, Named/optional arguments |
-| C# 5.0 | .NET Framework 4.5 | async/await |
-| C# 6.0 | .NET Framework 4.6 | Null-conditional operators (`?.`), String interpolation, Expression-bodied members |
-| C# 7.0-7.3 | .NET Framework 4.7 / .NET Core 2.x | Tuples, Pattern matching, Local functions, Out variables, Ref returns, Default literal |
-| C# 8.0 | .NET Core 3.x | Using declaration, Indices/ranges, Default interface methods, Nullable reference types |
-| C# 9.0 | .NET 5 | Records, Top-level statements, Target-typed new, Pattern combinators (and, or, not) |
-| C# 10 | .NET 6 | Global usings, File-scoped namespaces, Record structs, Const interpolated strings |
-| C# 11 | .NET 7 | Raw string literals, Required members, Generic math, List patterns, UTF-8 literals |
-| C# 12 | .NET 8 | Primary constructors, Collection expressions, Inline arrays, Alias any type |
-| C# 13 | .NET 9 | Params collections, Lock type, `\e` escape, Partial properties |
-| C# 14 | .NET 10 | Field keyword, Extension members, Null-conditional assignment, Partial constructors/events |
 
 ## Referenties
 
