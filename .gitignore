@@ -361,6 +361,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-
-# project-specific > ignore this folder
-ConsoleApp1/Hidden/
