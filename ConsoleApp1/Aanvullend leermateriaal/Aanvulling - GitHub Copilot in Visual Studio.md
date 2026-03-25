@@ -101,19 +101,13 @@ Next Edit Suggestions gaan een stap verder dan code completions. NES voorspelt n
 | **Visueel** | Grijze ghost text | Pijltje in de kantlijn + diff-weergave |
 | **Accepteren** | `Tab` | `Tab` (navigeren) + `Tab` (accepteren) |
 
-> **💡 Tip**
->
-> Als je NES afleidend vindt, kun je het instellen op "collapse" modus via **Tools > Options > GitHub > Copilot > Copilot Completions > Collapse Next Edit Suggestions**. Je bewerkingen triggeren dan nog steeds NES, maar de suggestie blijft verborgen tot je op het pijltje klikt of `Tab` drukt.
-
----
-
 ## 4. Inline Chat: AI in je code-editor
 
 Naast het chatpaneel kun je Copilot ook rechtstreeks in je code aanspreken. Dit heet **inline chat**.
 
 ### 4.1 Hoe activeren?
 
-1. Zet je cursor op een regel of selecteer een blok code
+1. Zet je cursor op een regel (waar je code wil invoegen) of selecteer een blok code (die je wil bijsturen
 2. Druk op `Alt + /` (standaard sneltoets in Visual Studio)
 3. Er verschijnt een invoerveld ter plekke in je code
 
@@ -125,11 +119,10 @@ Het chatpaneel is beter geschikt voor algemene vragen en uitleg.
 
 ### 4.3 Voorbeeldprompts voor inline chat
 
-- "voeg input validatie toe voor negatieve getallen"
-- "voeg commentaar toe dat uitlegt wat deze loop doet"
-- "hernoem de variabelen naar duidelijkere namen"
-
----
+- _"leg mij uit wat deze code doet"_
+- _"voeg input validatie toe voor negatieve getallen"_
+- _"voeg commentaar toe dat uitlegt wat deze loop doet"_
+- _"hernoem de variabelen naar duidelijkere namen"_
 
 ## 5. Copilot Actions en Quick Actions
 
@@ -162,14 +155,12 @@ Naast het contextmenu toont Visual Studio soms een **gloeilampje** (lightbulb) n
 - **Fix with Copilot** — verschijnt bij compile-fouten of waarschuwingen. Copilot analyseert de fout en stelt een oplossing voor via inline chat.
 - **Implement with Copilot** — verschijnt wanneer je een method stub of interface moet implementeren. Copilot genereert de method body.
 
-Deze acties verschijnen niet altijd — alleen wanneer Visual Studio detecteert dat Copilot kan helpen bij het specifieke probleem.
+Deze acties verschijnen niet altijd — alleen wanneer Visual Studio detecteert dat Copilot kan bijspringen.
 
 ### 5.3 Andere Copilot-integraties in de editor
 
 - **`///` voor documentatie** — typ `///` boven een method of klasse, en Copilot vult automatisch een XML-documentatiecommentaar aan op basis van de code.
 - **Describe with Copilot** — zweef met je muis over een symbool (method, variabele) en klik op "Describe with Copilot" in de QuickInfo-popup voor een korte uitleg.
-
----
 
 ## 6. Slash commands en # references
 
@@ -189,7 +180,7 @@ Typ `/` in het invoerveld om de lijst te zien. Enkele nuttige:
 
 ### 6.2 # References
 
-Gebruik `#` om specifieke context mee te geven in je prompt:
+Zoals eerder vermeld, gebruik `#` om specifieke context mee te geven in je prompt:
 
 - `#Program.cs` — verwijst naar een specifiek bestand
 - `#CalculateBmi` — verwijst naar een specifieke method of klasse
@@ -197,13 +188,15 @@ Gebruik `#` om specifieke context mee te geven in je prompt:
 
 *Voorbeeld: "Waarom geeft `#Program.cs` een fout op regel 12?"*
 
----
-
 ## 7. Modelselectie
 
 Copilot biedt meerdere AI-modellen aan. Elk model heeft eigen sterktes en een **kostenmultiplier** die bepaalt hoeveel van je maandelijks budget ("premium requests") het verbruikt.
 
-### 7.1 Hoe de multiplier werkt
+### 7.1 Model wisselen
+
+Onderaan het chatvenster zie je de naam van het huidige model (bv. "GPT-4.1"). Klik erop om een ander model te kiezen. Via **Manage Models** kun je modellen aan- of uitzetten om de lijst overzichtelijk te houden.
+
+### 7.2 Hoe de multiplier werkt
 
 Elk Copilot-plan geeft je een aantal **premium requests** per maand. De multiplier naast elk model bepaalt hoeveel er per interactie van je tegoed afgaat:
 
@@ -214,7 +207,9 @@ Elk Copilot-plan geeft je een aantal **premium requests** per maand. De multipli
 
 Als je premium requests op zijn, val je automatisch terug op een van de gratis standaardmodellen.
 
-### 7.2 Overzicht van modellen
+### 7.3 Overzicht van modellen
+
+Overzicht van enkel modellen...
 
 #### Standaardmodellen (0x — gratis)
 
@@ -229,7 +224,7 @@ Als je premium requests op zijn, val je automatisch terug op een van de gratis s
 | Model | Sterktes | Wanneer gebruiken? |
 |-------|----------|---------------------|
 | **Claude Sonnet 4 / 4.6** | Sterke uitleg, volgt instructies nauwgezet, goed Nederlands | Complexere uitleg, betere opvolging van custom instructions |
-| **Gemini 2.5 Pro** | Enorm context window, goed in grote codebases | Analyse van grotere projecten (overkill voor basiscursus) |
+| **Gemini 2.5 Pro** | Enorm context window, goed in grote codebases | Analyse van grotere projecten |
 | **GPT-5.2-Codex** | Geoptimaliseerd voor code-editing | Agent/edit mode taken |
 
 #### Zware modellen (3x+)
@@ -244,10 +239,6 @@ Als je premium requests op zijn, val je automatisch terug op een van de gratis s
 
 **Advies:** gebruik **Auto** of **GPT-4.1** als standaard. Schakel alleen over naar een premium model als je echt betere antwoorden nodig hebt.
 
-### 7.3 Model wisselen
-
-Onderaan het chatvenster zie je de naam van het huidige model (bv. "GPT-4.1"). Klik erop om een ander model te kiezen. Via **Manage Models** kun je modellen aan- of uitzetten om de lijst overzichtelijk te houden.
-
 ### 7.4 Je usage controleren
 
 Je kunt je verbruik van premium requests monitoren:
@@ -256,24 +247,26 @@ Je kunt je verbruik van premium requests monitoren:
 - Online: ga naar je [GitHub Copilot-instellingen](https://github.com/settings/copilot) en bekijk je verbruik onder **Billing**
 - Als je premium requests op zijn, kun je nog steeds Copilot gebruiken met de standaardmodellen (0x) voor de rest van de maand
 
----
-
 ## 8. Custom instructions
 
 ### 8.1 Wat zijn custom instructions?
 
-In de repository van je opdracht vind je een bestand `.github/copilot-instructions.md`. Dit bestand bevat instructies die **automatisch** worden meegestuurd bij elke vraag die je aan Copilot stelt — zowel in het chatpaneel als bij inline chat.
+In de root van je repo neem je in een `.github` foler een  `copilot-instructions.md` markdown bestand op. Dit bestand bevat instructies die **automatisch** worden meegestuurd bij elke vraag die je aan Copilot stelt — zowel in het chatpaneel als bij inline chat.
 
 De bestandsnaam en locatie zijn hard gecodeerd: het **moet** exact `.github/copilot-instructions.md` zijn in de root van je repository. Een bestand met een andere naam of op een andere locatie wordt genegeerd.
 
 ### 8.2 Wat staat erin voor dit vak?
 
-De custom instructions voor dit vak bevatten onder andere:
+Bij die custom instructions zou je kunnen opnemen:
 
 - Dat Copilot in het **Nederlands** moet antwoorden
 - Welke C#-concepten je al kent (en welke **niet** — zoals OOP, LINQ, exceptions)
 - Dat Copilot **geen volledige oplossingen** mag geven, maar hints en gerichte vragen
-- De **codeerstijl en naamgevingsconventies** die we hanteren (camelCase voor variabelen, PascalCase voor methods, Allman-accolades)
+- De **codeerstijl en naamgevingsconventies** die we hanteren (camelCase voor variabelen, PascalCase voor methods, K&R-accolades)
+
+> ** Ter zijde: accolades**
+>
+> In de C#-wereld is Allman (openingsaccolade op nieuwe regel, op hetzelfde inspringniveau als de bijbehorende instructie) de standaardconventie — Visual Studio genereert by default code in die stijl, en de .NET-coderichtlijnen van Microsoft volgen die ook. JavaScript en TypeScript gebruiken daarentegen bijna universeel K&R (Kernighan & Ritchie), waarbij de openingsaccolade op dezelfde regel staat:. 
 
 ### 8.3 Verifiëren dat de instructies actief zijn
 
@@ -289,13 +282,6 @@ Custom instructions zijn niet zichtbaar in het chatvenster zelf. Om te controler
 - Ga naar **Tools > Options** > zoek "custom instructions"
 - Vink aan: **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**
 
-> **⚠️ Belangrijk**
->
-> - Pas het instructiebestand niet aan. De instructies zijn er om je te helpen leren, niet om je te beperken.
-> - De instructies worden bijgewerkt naarmate het semester vordert en je meer concepten leert.
-
----
-
 ## 9. Het Output Window als hulpbron
 
 Visual Studio's Output Window bevat waardevolle informatie bij build errors en debug-sessies. Copilot kan deze informatie lezen en interpreteren.
@@ -304,14 +290,12 @@ Visual Studio's Output Window bevat waardevolle informatie bij build errors en d
 
 1. Bouw je project (`Ctrl+Shift+B`) en bekijk de output
 2. Selecteer de foutmelding(en) in het Output Window
-3. Rechtsklik → open Copilot Chat met de geselecteerde tekst
+3. Rechtsklik → _Explain with Copilot_ 
 4. Of: gebruik de **+ Reference** knop in het chatpaneel en kies **Output Window logs**
 
 Copilot analyseert dan de foutmeldingen en kan uitleggen wat er misgaat en hoe je het kunt oplossen.
 
 Dit werkt niet alleen voor build output, maar ook voor debug-, test-, source control- en package manager-output.
-
----
 
 ## 10. Copilot-instellingen
 
@@ -342,51 +326,37 @@ Er zijn twee wegen:
 |------------|---------------|
 | **Enable Copilot Completions** | Schakelt de automatische ghost text-suggesties in/uit |
 | **Enable Next Edit Suggestions** | Schakelt NES in/uit |
-| **Collapse Next Edit Suggestions** | Verbergt NES standaard — toont alleen het pijltje in de kantlijn |
 
-### 10.3 Aanbevolen instellingen voor dit vak
-
-- **Enable Copilot Completions:** aan — handig voor het sneller typen van code
-- **Enable Next Edit Suggestions:** aan (optioneel uit als je het afleidend vindt)
-- **Auto-Attach Active Document:** aan — zo heeft Copilot altijd context over je huidige bestand
-- **Enable referencing your #solution:** aan — nuttig als je wilt dat Copilot je hele project begrijpt
-- **Agent mode:** uit voor beginners — agent mode is krachtig maar kan overweldigend zijn als je de basis nog leert
-
----
 
 ## 11. Praktische tips
 
 ### 11.1 Effectief prompts schrijven
 
-- **Wees specifiek:** "Waarom krijg ik een IndexOutOfRangeException in mijn for-loop?" is beter dan "Mijn code werkt niet"
+- **Wees specifiek:** _"Waarom krijg ik een IndexOutOfRangeException in mijn for-loop?"_ is beter dan _"Mijn code werkt niet"_
 - **Geef context mee:** gebruik `#` references naar je bestanden
-- **Stel follow-up vragen:** "En wat als de gebruiker niets invoert?"
-- **Vraag om uitleg, niet om oplossingen:** "Leg uit wat er fout gaat" in plaats van "Fix mijn code"
+- **Stel follow-up vragen:** _"En wat als de gebruiker niets invoert?"_
+- **Vraag om uitleg, niet om oplossingen:** _"Leg uit wat er fout gaat"_ in plaats van _"Fix mijn code"_
 
 ### 11.2 Copilot als leerpartner
 
 - Gebruik **Explain** om bestaande code te begrijpen
-- Vraag Copilot om analogieën: "Leg arrays uit alsof je het aan een niet-programmeur uitlegt"
-- Laat Copilot je code reviewen: "Wat kan ik verbeteren aan deze method?"
+- Vraag Copilot om analogieën: _"Leg arrays uit alsof je het aan een niet-programmeur uitlegt"_
+- Laat Copilot je code reviewen: _"Wat kan ik verbeteren aan deze method?"_
 - Gebruik Copilot om te debuggen: stel de foutmelding als vraag en laat Copilot je in de juiste richting wijzen
 
 ### 11.3 Veelgemaakte fouten
 
 - Copilot-antwoorden blindelings overnemen zonder ze te begrijpen
-- Te vage prompts sturen ("help", "dit werkt niet")
+- Te vage prompts sturen (_"help"_, _"dit werkt niet"_)
 - Vergeten om een nieuwe thread te starten bij een nieuw onderwerp
 - Niet controleren welk model actief is (een duur model verbrandt onnodig budget)
 - Niet nakijken in de References-lijst of Copilot de juiste bestanden heeft gebruikt
-
----
 
 ## 12. Sneltoetsen
 
 | Sneltoets | Actie |
 |-----------|-------|
 | `Alt + /` | Inline chat openen (in de editor) |
-| `Ctrl + N` | Nieuwe thread starten in het chatpaneel |
-| `Ctrl + Shift + B` | Project builden (output verschijnt in Output Window) |
 | `Tab` | Code completion of NES-suggestie accepteren |
 | `Esc` | Suggestie afwijzen |
 | `Ctrl + Rechter pijl` | Completion woord per woord accepteren |
