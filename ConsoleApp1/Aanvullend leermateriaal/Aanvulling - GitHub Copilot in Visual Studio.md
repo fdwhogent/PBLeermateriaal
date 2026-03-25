@@ -1,17 +1,13 @@
 # GitHub Copilot in Visual Studio
 
-
-
 ## 1. Wat is GitHub Copilot?
 
-GitHub Copilot is een AI-gestuurde programmeerassistent die rechtstreeks in Visual Studio werkt. Het helpt je bij het schrijven van code, het begrijpen van bestaande code, en het opsporen van fouten. Copilot is geen vervanging voor je eigen programmeerkennis — het is een hulpmiddel dat je productiever maakt als je de basis begrijpt.
-
-> **⚠️ Belangrijk**
->
-> - Copilot kan fouten maken. Controleer altijd of de suggesties kloppen.
-> - Copilot is een hulpmiddel, geen examenvervanger. Je moet de code die Copilot genereert zelf begrijpen.
-> - Voor dit vak gelden specifieke regels over het gebruik van AI-tools bij opdrachten. Volg de richtlijnen van je lector.
-
+GitHub Copilot is een AI-gestuurde programmeerassistent die rechtstreeks in Visual Studio werkt. Het helpt je onder meer bij het 
+- schrijven van code; 
+- begrijpen van bestaande code; 
+- opsporen van fouten. 
+ 
+⚠️ Copilot is geen vervanging voor je eigen programmeerkennis — het is een hulpmiddel dat je productiever maakt.  
 
 ## 2. Copilot Chat: het chatpaneel
 
@@ -22,7 +18,7 @@ Het chatpaneel is het zijvenster waarin je vragen kunt stellen aan Copilot. Je o
 - **View > GitHub Copilot Chat**
 - Of via het **Copilot-icoontje** rechtsboven in Visual Studio
 
-Typ je vraag in gewone taal (Nederlands of Engels) en druk op Enter. Copilot antwoordt met uitleg, codevoorbeelden, of suggesties.
+Typ je vraag (_Ask_ mode) of opdracht (_Agent_ mode) in gewone taal (bijvoorbeeld Nederlands of Engels) en druk op Enter.  Copilot antwoordt met uitleg, codevoorbeelden, of suggesties.
 
 ### 2.2 Threads en context
 
@@ -31,37 +27,33 @@ Elke conversatie in het chatpaneel is een **thread**. Copilot onthoudt wat je ee
 > **💡 Tip: Nieuwe thread starten**
 >
 > - Klik op **New Thread** (of `Ctrl+N`) om een nieuwe conversatie te starten.
-> - Doe dit wanneer je aan een nieuw onderwerp begint. Een lange thread met gemengde onderwerpen maakt de antwoorden minder relevant.
-> - Verwijder vragen die niet het gewenste resultaat gaven — ze vervuilen anders de context.
+> - Doe dit wanneer je aan een nieuw onderwerp begint. Een lange thread met gemengde onderwerpen maakt de antwoorden minder relevant (het _context window_ geraakt vervuild).
+> - Verwijder eventueel vragen die niet het gewenste resultaat gaven, ook deze vervuilden de context.
 
 **Let op:** chatgeschiedenis is vluchtig. Als je Visual Studio sluit, kan de thread verdwenen zijn bij het heropenen. Kopieer nuttige antwoorden dus altijd naar je code of notities.
 
 ### 2.3 Context meegeven via references
 
-Copilot geeft betere antwoorden als het weet waar je het over hebt. Standaard ziet Copilot al je actieve bestand en geselecteerde tekst. Maar je kunt extra context toevoegen via de **+ Reference** knop onderaan het chatvenster:
+Copilot geeft betere antwoorden als het weet waar je het over hebt. Standaard ziet Copilot (lees: _neemt mee in het context window_) ondermeer je _Active document_, _Selection_ en _Solution_.  Maar je kunt extra context toevoegen via de **+ Reference** knop onderaan het chatvenster:
 
 | Reference | Wat doet het? |
 |-----------|---------------|
-| **Active document** | Stuurt het volledige bestand dat je nu open hebt mee |
-| **Solution** | Geeft Copilot een overzicht van je hele projectstructuur |
 | **Files** | Laat je een specifiek bestand uit je solution kiezen |
 | **Methods** | Laat je een specifieke method selecteren als context |
-| **Output Window logs** | Stuurt build/debug output mee — zeer handig bij foutmeldingen |
-| **Upload Image** | Laat je een screenshot meesturen (bv. van een foutmelding) |
+| **Output Window logs** | Stuurt build/debug output mee — mogelijks een goed idee bij foutmeldingen |
+| **Upload Image** | Laat je een screenshot meesturen (bv. van een probleem/foutmelding) |
 
-*Tip: gebruik `#` gevolgd door een bestandsnaam (bv. `#Program.cs`) om snel een bestand te refereren in je prompt.*
+*Tip: gebruik in je prompt `#` gevolgd door een bestandsnaam (bv. `#Program.cs`) of code element (bv.`#Program` of `#Main` om vlot aan een bestand of code element te refereren.*
 
 ### 2.4 References-lijst: controleren wat Copilot heeft gebruikt
 
-Bij elk antwoord dat Copilot geeft, kun je onderaan een **References**-sectie bekijken (soms als een inklapbaar lijstje). Hierin toont Copilot welke bronnen het heeft gebruikt om zijn antwoord samen te stellen — denk aan bestanden uit je solution, open tabs, en ook je custom instructions-bestand.
+Bij elk antwoord dat Copilot geeft, kun je onderaan een **References**-sectie bekijken (soms als een inklapbaar lijstje). Hierin toont Copilot welke bronnen het heeft gebruikt om zijn antwoord samen te stellen — denk aan bestanden uit je solution, open tabs, en ook je custom instructions-bestand (zie verderop).
 
 Dit is nuttig om te verifiëren:
 
 - Of Copilot inderdaad naar het juiste bestand heeft gekeken
-- Of je `copilot-instructions.md` is meegestuurd (als dat bestand in de References staat, zijn de instructies actief)
+- Of je `copilot-instructions.md` (zie verderop) is meegestuurd (als dat bestand in de References staat, zijn de instructies actief)
 - Welke context Copilot heeft meegenomen — als een belangrijk bestand ontbreekt, voeg het dan handmatig toe via `#` of de `+ Reference` knop
-
----
 
 ## 3. Code completions en Next Edit Suggestions
 

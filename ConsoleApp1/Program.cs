@@ -1,7 +1,7 @@
 ﻿namespace ConsoleApp1 {
     internal class Program {
         static void Main(string[] args) {
-            DateOnly do1 = new DateOnly(2026, 3, 12);
+            DateOnly do_1 = new DateOnly(2026, 3, 12);
             DateOnly do2 = new DateOnly(2026, 3, 15);
 
             DateTime dt1 = do1.ToDateTime(TimeOnly.MinValue);
@@ -12,9 +12,10 @@
 
             // Terug naar DateTime met FromDateTime...
             DateOnly otherDateOnly = DateOnly.FromDateTime(dt1);
-
-            Factuur f1 = new Factuur() { Nummer = 123 };
-            Factuur f2 = f1 with { Nummer = 234 };
+        }
+        // method om bmi te berekenen
+        static double BerekenBMI(double gewicht, double lengte) {
+            return gewicht / (lengte * lengte);
         }
     }
     class Factuur {
