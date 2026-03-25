@@ -138,6 +138,24 @@ Console.WriteLine(gelukt);  // False
 ```
 Ook het `DateTime` datatype (waar je meer informatie over kunt vinden in het reguliere uitgeschreven cursusmateriaal, zie D12) heeft een `TryParseExact` methode die je toelaat om een specifiek formaat af te dwingen bij het parsen van een string naar een `DateTime` instantie.  De argumenten zijn vergelijkbaar als bij `DateOnly.TryParseExact`, maar er zijn ook nog extra argumenten mogelijk, zoals de `DateTimeStyles` enumeratie, waarmee je bijvoorbeeld kan aangeven dat je wilt dat de tijdzone-informatie in de string wordt genegeerd (`DateTimeStyles.AssumeUniversal`), of dat je wilt dat de datum en tijd worden geïnterpreteerd als lokale tijd (`DateTimeStyles.AssumeLocal`).
 
+### Van DateOnly naar DateTime, en omgekeerd
+
+Misschien zinvol omdat je via `DateTime` instanties aan `TimeSpan`s wil geraken...
+
+```csharp
+DateOnly do1 = new DateOnly(2026, 3, 12);
+DateOnly do2 = new DateOnly(2026, 3, 15);
+
+DateTime dt1 = do1.ToDateTime(TimeOnly.MinValue);
+DateTime dt2 = do2.ToDateTime(TimeOnly.MinValue);
+
+TimeSpan ts1 = dt2 - dt1;
+Console.WriteLine(ts1.Days); // 3
+
+// Terug naar DateTime met FromDateTime...
+DateOnly otherDateOnly = DateOnly.FromDateTime(dt1);
+```
+
 ## 2. Samenvatting: wanneer welke cultuur?
 
 | Situatie | Cultuurinstelling | Voorbeeld |
@@ -147,9 +165,7 @@ Ook het `DateTime` datatype (waar je meer informatie over kunt vinden in het reg
 | Wegschrijven naar bestand | `CultureInfo.InvariantCulture` + vast formaat | `datum.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)` |
 | Inlezen uit bestand | `CultureInfo.InvariantCulture` + vast formaat | `DateOnly.ParseExact(tekst, "yyyy-MM-dd", CultureInfo.InvariantCulture)` |
 
----
-
-## 6. Bijlage: de `"O"` (round-trip) formatstring per datatype
+## 3. Bijlage: de `"O"` (round-trip) formatstring per datatype
 
 | Datatype | `"O"` formaat | Voorbeeld |
 |---|---|---|
